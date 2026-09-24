@@ -4,3 +4,6 @@ extraPaths = ["backend"]
 
 [tool.pylance]
 extraPaths = ["backend"]
+
+[tool.vercel]
+entrypoint = "backend/run.py"
