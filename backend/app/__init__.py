@@ -40,6 +40,16 @@ def create_app(config_class=Config):
     def invalid_token_callback(callback):
         return jsonify({'error': 'Invalid authentication token signature', 'code': 'INVALID_TOKEN'}), 401
 
+    # Root route
+    @app.route('/', methods=['GET'])
+    def root_info():
+        return jsonify({
+            'message': 'EventEase Backend API is running',
+            'frontend_url': 'http://localhost:5173',
+            'health_check': 'http://127.0.0.1:5000/api/health',
+            'status': 'online'
+        }), 200
+
     # Health check route
     @app.route('/api/health', methods=['GET'])
     def health_check():
