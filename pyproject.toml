@@ -1,7 +1,0 @@
-[tool.pyright]
-include = ["backend"]
-extraPaths = ["backend"]
-
-[tool.pylance]
-extraPaths = ["backend"]
-

@@ -1,0 +1,6 @@
+[tool.pyright]
+include = ["app"]
+extraPaths = ["app"]
+
+[tool.pylance]
+extraPaths = ["app"]
