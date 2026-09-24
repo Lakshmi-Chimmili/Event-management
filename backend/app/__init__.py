@@ -1,4 +1,11 @@
+import sys
 import os
+
+# Ensure backend directory is in sys.path for direct script execution
+backend_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+if backend_dir not in sys.path:
+    sys.path.insert(0, backend_dir)
+
 from flask import Flask, jsonify
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
@@ -55,3 +62,8 @@ def create_app(config_class=Config):
             print(f">>> [Database Warning] Error during db.create_all() or seed: {e}")
 
     return app
+
+
+if __name__ == '__main__':
+    app = create_app()
+    app.run(host='127.0.0.1', port=5000, debug=True)
